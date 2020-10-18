@@ -8,6 +8,7 @@ import History from './components/History';
 import { TabNavigator } from 'react-navigation';
 import { purple, white } from './utils/colors';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import { setLocalNotification } from './utils/helpers';
 import Constants from 'expo-constants';
 //install expo install expo-constants
 
@@ -75,6 +76,9 @@ const MainNavigator = StackNavigator({
 });
 
 export default class App extends React.Component {
+	componentDidMount() {
+		setLocalNotification();
+	}
 	store = createStore(reducer);
 	render() {
 		return (
